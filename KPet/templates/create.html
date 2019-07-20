@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+
+	Registeration 
+
+{% endblock title %}
+
+{% block content %}
+<head>
+<div class="card">
+  <h5 class="card-header">Register Your Pet</h5>
+  <div class="card-body">
+   	<p class="card-text">
+        <form class="col-6 mx-auto" action="{% url 'pet-create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Register" class="btn btn-outline-success">
+        </form>
+    </p>
+  </div>
+</div>
+</head>
+
+<!--         <meta charset="utf-8">
+        <title>Create</title>
+    </head>
+    <body>
+        {{form}}
+        <input type="submit" value="Create">
+    </body> -->
+
+
+{% endblock content %}
